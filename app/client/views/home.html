@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Home</title>
-</head>
-<body>
-	<h1>HOME</h1>
-</body>
-</html>
+<div class="container" ng-controller="Schedules">
+  <div id="schedule">
+    <h1>HOME</h1>
+      <div id="tasks-and-times">
+        <div id="time-slots">
+          <div class="time-slot" ng-repeat="slot in timeSlots" droppable drop="addTask" bin="slot">
+            <p class="time">{{ slot.date | date:'h a'}}</p>
+            <div id="{{ slot.id }}" class="slot" ></div>
+          </div>
+        </div>
+        <div id="tasks" droppable drop="addTask" bin="tasks">
+          <div id="{{ task.id }}" class="task" ng-repeat="task in tasks" draggable item="task">
+            <div class="task-body">
+              <p>{{ task.title }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

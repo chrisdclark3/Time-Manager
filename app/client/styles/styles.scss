@@ -1,1 +1,84 @@
 @import "_bootstrap";
+body, html, #view, .container {
+    height: 100%;
+}
+
+#schedule {
+    height: inherit;
+    overflow: hidden;
+
+    p {
+        margin-top: 0;
+        padding-top: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    #tasks-and-times {
+    		$height: 90vh;
+        height: $height;
+        vertical-align: top;
+        display: block;
+        width: 100%;
+        #time-slots {
+            height: inherit;
+            width: 45%;
+            display: inline-block;
+            text-align: left;
+            float: left;
+            .time-slot {
+            		width: 100%;
+            		position: relative;
+            		min-height: $height / 48;
+								display: block;
+								min-height: 24px;
+            .time {
+								height: inherit;
+                position: absolute;
+                left: 0;
+                margin: 0;
+                padding: 0;
+                text-align: right;
+                display: inline;
+            }
+            .slot {
+            	  position: absolute;
+                left: 0;
+            	  margin: 0;
+                padding: 0;
+								height: inherit;
+								min-height: 24px;
+								border: 1px solid black;
+                width: 100%;
+                display: inline;
+            }
+          }
+        }
+        #tasks {
+            width: 45%;
+            height: inherit;
+            display: inline-block;
+        }
+        .task {
+            height: auto;
+        }
+        .task {
+            overflow: hidden;
+            position: relative;
+            border: 1px solid black;
+            border-radius: 0.5em;
+            width: 100%;
+            .task-body:first-child {
+                height: 0;
+                padding: 0;
+            }
+            .task-body:last-child {
+                height: 100%;
+                padding: 0.5em;
+            }
+            .task-body {
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+}
