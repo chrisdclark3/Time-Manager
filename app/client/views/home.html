@@ -3,13 +3,13 @@
     <h1>HOME</h1>
       <div id="tasks-and-times">
         <div id="time-slots">
-          <div class="time-slot" ng-repeat="slot in timeSlots" droppable drop="addTask" bin="slot">
-            <p class="time">{{ slot.date | date:'h a'}}</p>
-            <div id="{{ slot.id }}" class="slot" ></div>
+          <div class="time-slot" ng-repeat="slot in timeSlots" ng-class="{ 'top': (slot.id - startTime) % 60 == 0, 'mid': ((slot.id - startTime) % 60 == 15) || ((slot.id - startTime) % 60 == 30), 'bottom': (slot.id - startTime) % 60 == 45 }">
+            <p class="time" ng-show=" slot.id % 60 == 0 ">{{ slot.date | date:'h a'}}</p>
+            <div id="{{ slot.id }}" class="slot" droppable drop="addTask" bin="slot"></div>
           </div>
         </div>
-        <div id="tasks" droppable drop="addTask" bin="tasks">
-          <div id="{{ task.id }}" class="task" ng-repeat="task in tasks" draggable item="task">
+        <div id="tasks" droppable drop="deleteTask" bin="tasks">
+          <div id="{{ task.id }}" class="task" ng-repeat="task in tasks" draggable item="task" extendable>
             <div class="task-body">
               <p>{{ task.title }}</p>
             </div>
